@@ -1,37 +1,117 @@
 [gd_scene format=3 uid="uid://dm4t1p3p3hxpk"]
 
-[ext_resource type="Script" uid="uid://0fqddohtie2y" path="res://dino_guy.gd" id="1_5xe4n"]
+[ext_resource type="Script" uid="uid://bxubymidbiqb" path="res://node.gd" id="1_nbu7g"]
 [ext_resource type="Texture2D" uid="uid://c0mkcgwbu2ont" path="res://dino-removebg-preview.png" id="1_uukog"]
+[ext_resource type="Script" uid="uid://rkptv8g0f5ep" path="res://interactable.gd" id="3_erpoh"]
+[ext_resource type="Texture2D" uid="uid://c0h6a0iquiwio" path="res://sign empty.png" id="4_talk3"]
+[ext_resource type="Texture2D" uid="uid://dgaxcwffok8r8" path="res://sign text.png" id="5_nbu7g"]
+
+[sub_resource type="GDScript" id="GDScript_erpoh"]
+script/source = "extends CharacterBody2D
+
+@export var nearby_interactables = []
+	
+@export var speed: float = 300.0
+
+@onready var sign = $Interactable/sign
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+
+func _physics_process(delta):
+	velocity = Vector2.ZERO
+	var direction = Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
+	if direction:
+		velocity = direction.normalized() * SPEED
+	if Input.is_action_just_pressed(\"interact\"):
+			if nearby_interactables:
+					nearby_interactables.back().interact()
+
+	move_and_slide()
+
+
+
+func _on_interaction_detector_area_entered(area):
+	print(\"interactable removed\")
+	area.set_active(true)
+	nearby_interactables.append(area)
+
+func _on_interaction_detector_area_exited(area):
+	print(\"interactable detected\")
+	area.set_active(false)
+	nearby_interactables.erase(area)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xe4n"]
+radius = 25.284756
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xe4n"]
 radius = 116.0
 height = 328.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5xe4n"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_erpoh"]
+radius = 23.9211
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1040609541]
-script = ExtResource("1_5xe4n")
+[sub_resource type="SpriteFrames" id="SpriteFrames_emtgb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_talk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nbu7g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1575830908]
+[node name="Node" type="Node" unique_id=657424746]
+script = ExtResource("1_nbu7g")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1040609541]
+script = SubResource("GDScript_erpoh")
+
+[node name="InteractionDetector" type="Area2D" parent="CharacterBody2D" unique_id=2054372874]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(935, 313)
+scale = Vector2(6.404227, 3.612608)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/InteractionDetector" unique_id=1203654626]
+position = Vector2(-0.15615225, 2.2144642)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CircleShape2D_5xe4n")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1093299061]
 position = Vector2(509.9999, 263.00003)
 scale = Vector2(1.0882243, 1.0035262)
 texture = ExtResource("1_uukog")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585260985]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=585260985]
 position = Vector2(515, 260)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("CapsuleShape2D_5xe4n")
 
-[node name="InteractionDetector" type="Area2D" parent="." unique_id=2054372874]
-light_mask = 0
-visibility_layer = 2
-position = Vector2(518, 256)
-scale = Vector2(6.404227, 3.612608)
-monitorable = false
+[node name="Interactable" type="Area2D" parent="." unique_id=941463698]
+position = Vector2(933, 309.00006)
+scale = Vector2(6.4042263, 3.6126077)
+script = ExtResource("3_erpoh")
+metadata/_custom_type_script = "uid://rkptv8g0f5ep"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=1203654626]
-position = Vector2(72.296, 34.87785)
-shape = SubResource("CircleShape2D_5xe4n")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1289997891]
+position = Vector2(0.15614843, 1.1072333)
+shape = SubResource("CircleShape2D_erpoh")
 
-[connection signal="area_entered" from="InteractionDetector" to="." method="_on_interaction_detector_area_entered"]
-[connection signal="area_exited" from="InteractionDetector" to="." method="_on_interaction_detector_area_exited"]
+[node name="sign" type="AnimatedSprite2D" parent="Interactable" unique_id=1604335566]
+position = Vector2(0.46844053, 0.5535822)
+scale = Vector2(0.11182105, 0.18064749)
+sprite_frames = SubResource("SpriteFrames_emtgb")
+
+[connection signal="area_entered" from="CharacterBody2D/InteractionDetector" to="CharacterBody2D" method="_on_interaction_detector_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D/InteractionDetector" to="CharacterBody2D" method="_on_interaction_detector_area_exited"]
+[connection signal="area_entered" from="Interactable" to="." method="_on_interactable_area_entered"]
+[connection signal="area_exited" from="Interactable" to="." method="_on_interactable_area_exited"]
