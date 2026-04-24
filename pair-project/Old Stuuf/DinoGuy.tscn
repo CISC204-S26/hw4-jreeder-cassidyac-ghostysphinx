@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dm4t1p3p3hxpk"]
 
 [ext_resource type="Script" uid="uid://bxubymidbiqb" path="res://node.gd" id="1_nbu7g"]
-[ext_resource type="Texture2D" uid="uid://c0mkcgwbu2ont" path="res://dino-removebg-preview.png" id="1_uukog"]
+[ext_resource type="Texture2D" uid="uid://c0mkcgwbu2ont" path="res://Old Stuuf/dino-removebg-preview.png" id="1_uukog"]
 [ext_resource type="Script" uid="uid://rkptv8g0f5ep" path="res://interactable.gd" id="3_erpoh"]
-[ext_resource type="Texture2D" uid="uid://c0h6a0iquiwio" path="res://sign empty.png" id="4_talk3"]
-[ext_resource type="Texture2D" uid="uid://dgaxcwffok8r8" path="res://sign text.png" id="5_nbu7g"]
+[ext_resource type="Texture2D" uid="uid://c0h6a0iquiwio" path="res://Old Stuuf/sign empty.png" id="4_talk3"]
+[ext_resource type="Texture2D" uid="uid://dgaxcwffok8r8" path="res://Old Stuuf/sign text.png" id="5_nbu7g"]
 
 [sub_resource type="GDScript" id="GDScript_erpoh"]
 script/source = "extends CharacterBody2D

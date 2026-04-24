@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0mkcgwbu2ont"
-path="res://.godot/imported/dino-removebg-preview.png-4b027a742a389971b5cc6f6d049382b6.ctex"
+uid="uid://cexj2rlumkds4"
+path="res://.godot/imported/Object 4.png-e7feedee4b9519fa193c9cb285830e68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dino-removebg-preview.png"
-dest_files=["res://.godot/imported/dino-removebg-preview.png-4b027a742a389971b5cc6f6d049382b6.ctex"]
+source_file="res://Art/Object 4.png"
+dest_files=["res://.godot/imported/Object 4.png-e7feedee4b9519fa193c9cb285830e68.ctex"]
 
 [params]
 

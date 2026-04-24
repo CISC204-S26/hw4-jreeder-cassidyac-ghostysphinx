@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Pair Project"
-run/main_scene="uid://dm4t1p3p3hxpk"
+run/main_scene="uid://heaiae4npo8a"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Old Stuuf/icon.svg"
 
 [input]
 

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ds3ki6743ko3m"]
+
+[ext_resource type="Texture2D" uid="uid://dt8pamcrijt1h" path="res://Art/Planet 1.png" id="1_h3ok5"]
+[ext_resource type="Texture2D" uid="uid://ddj4n8fwmgwk3" path="res://Art/Closed Door.png" id="2_7n2ao"]
+[ext_resource type="Texture2D" uid="uid://hgve22sdvqll" path="res://Art/Open Door.png" id="3_n6adq"]
+
+[node name="Planet1" type="Node2D" unique_id=1012845952]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1980595937]
+position = Vector2(568.1111, 318.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("1_h3ok5")
+
+[node name="Closed Door" type="Sprite2D" parent="." unique_id=1499785865]
+position = Vector2(821, 267)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_7n2ao")
+
+[node name="Open Door" type="Sprite2D" parent="." unique_id=842461272]
+position = Vector2(821, 267)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_n6adq")

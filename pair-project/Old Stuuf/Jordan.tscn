@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yey5408hkk1b"]
 
-[ext_resource type="Texture2D" uid="uid://c0mkcgwbu2ont" path="res://dino-removebg-preview.png" id="1_ntqfe"]
+[ext_resource type="Texture2D" uid="uid://c0mkcgwbu2ont" path="res://Old Stuuf/dino-removebg-preview.png" id="1_ntqfe"]
 
 [node name="Node2D" type="Node2D" unique_id=2061125663]
 

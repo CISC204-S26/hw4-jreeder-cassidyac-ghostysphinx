@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cc6xwiqd334n0"]
 
-[ext_resource type="Texture2D" uid="uid://cbdxfwrjyresj" path="res://icon.svg" id="1_nt3iv"]
+[ext_resource type="Texture2D" uid="uid://cbdxfwrjyresj" path="res://Old Stuuf/icon.svg" id="1_nt3iv"]
 
 [node name="Node2D" type="Node2D" unique_id=1759012243]
 
