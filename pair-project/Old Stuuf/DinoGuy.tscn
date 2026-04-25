@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dm4t1p3p3hxpk"]
 
 [ext_resource type="Script" uid="uid://bxubymidbiqb" path="res://node.gd" id="1_nbu7g"]
-[ext_resource type="Texture2D" uid="uid://c0mkcgwbu2ont" path="res://Old Stuuf/dino-removebg-preview.png" id="1_uukog"]
+[ext_resource type="Texture2D" uid="uid://5xb5g8fs28g7" path="res://Art/Alien.png" id="2_1085i"]
 [ext_resource type="Script" uid="uid://rkptv8g0f5ep" path="res://interactable.gd" id="3_erpoh"]
 [ext_resource type="Texture2D" uid="uid://c0h6a0iquiwio" path="res://Old Stuuf/sign empty.png" id="4_talk3"]
 [ext_resource type="Texture2D" uid="uid://dgaxcwffok8r8" path="res://Old Stuuf/sign text.png" id="5_nbu7g"]
@@ -48,8 +48,8 @@ func _on_interaction_detector_area_exited(area):
 radius = 25.284756
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xe4n"]
-radius = 116.0
-height = 328.0
+radius = 47.0
+height = 94.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erpoh"]
 radius = 23.9211
@@ -87,12 +87,12 @@ scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CircleShape2D_5xe4n")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1093299061]
-position = Vector2(509.9999, 263.00003)
-scale = Vector2(1.0882243, 1.0035262)
-texture = ExtResource("1_uukog")
+position = Vector2(519.99994, 256)
+scale = Vector2(0.12807465, 0.11810641)
+texture = ExtResource("2_1085i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=585260985]
-position = Vector2(515, 260)
+position = Vector2(518, 259)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("CapsuleShape2D_5xe4n")
 

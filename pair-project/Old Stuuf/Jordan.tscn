@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://yey5408hkk1b"]
+[gd_scene format=3 uid="uid://drgs64wvaimx7"]
 
-[ext_resource type="Texture2D" uid="uid://c0mkcgwbu2ont" path="res://Old Stuuf/dino-removebg-preview.png" id="1_ntqfe"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_an05h"]
+load_path = "res://.godot/imported/dino-removebg-preview.png-28a866ca595852dc57f29c962151fae0.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=2061125663]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605429971]
 position = Vector2(558, 316)
 scale = Vector2(2.8916667, 1.4444444)
-texture = ExtResource("1_ntqfe")
+texture = SubResource("CompressedTexture2D_an05h")

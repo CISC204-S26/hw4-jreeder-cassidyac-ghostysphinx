@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://cc6xwiqd334n0"]
+[gd_scene format=3 uid="uid://bwtfglenr2084"]
 
-[ext_resource type="Texture2D" uid="uid://cbdxfwrjyresj" path="res://Old Stuuf/icon.svg" id="1_nt3iv"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngfra"]
+load_path = "res://.godot/imported/icon.svg-017bb5e347d6bba73601b27f8cd07d80.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=1759012243]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=505556556]
 position = Vector2(574.99994, 320.99997)
 scale = Vector2(2.7578125, 2.7578125)
-texture = ExtResource("1_nt3iv")
+texture = SubResource("CompressedTexture2D_ngfra")
