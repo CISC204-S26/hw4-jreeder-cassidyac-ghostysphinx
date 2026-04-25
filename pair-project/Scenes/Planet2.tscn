@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ccf2ulf0ilspa"]
+
+[ext_resource type="Texture2D" uid="uid://cht4qmhbh3xr" path="res://Art/Planet2.png" id="1_yc7nc"]
+
+[node name="Planet2" type="Node2D" unique_id=368560157]
+
+[node name="Planet2" type="Sprite2D" parent="." unique_id=258107]
+position = Vector2(587, 330)
+scale = Vector2(0.637963, 0.63796294)
+texture = ExtResource("1_yc7nc")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bpxiqt0p2tbq5"]
+
+[ext_resource type="Texture2D" uid="uid://b1rxwjyelqewr" path="res://Art/Planet 4.png" id="1_hy4j5"]
+
+[node name="Planet4" type="Node2D" unique_id=478031906]
+
+[node name="Planet4" type="Sprite2D" parent="." unique_id=613101475]
+position = Vector2(569.44446, 323.25)
+scale = Vector2(0.60972214, 0.60972214)
+texture = ExtResource("1_hy4j5")
