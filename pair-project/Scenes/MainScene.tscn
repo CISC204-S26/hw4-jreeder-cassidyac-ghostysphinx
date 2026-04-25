@@ -3,9 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dl3m2ufy2i05t" path="res://Art/Main Screen.png" id="1_tr2i4"]
 [ext_resource type="Script" uid="uid://d4b2wkplgcuo6" path="res://Scenes/planet_1.gd" id="2_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://myu7b3xsqfad" path="res://Scenes/PlayerCharacter.tscn" id="2_nhkr4"]
+[ext_resource type="Script" uid="uid://bjx70ehejvk6t" path="res://Scenes/planet_2.gd" id="4_7rqgy"]
+[ext_resource type="Script" uid="uid://mb0nvy8glugk" path="res://Scenes/planet_three.gd" id="4_qxria"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxria"]
-radius = 125.87692
+radius = 116.00431
 
 [node name="MainScene" type="Node2D" unique_id=1403496129]
 
@@ -22,8 +24,28 @@ script = ExtResource("2_7rqgy")
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_qxria")
 
+[node name="planet2" type="Area2D" parent="." unique_id=1387009553]
+position = Vector2(709, 171)
+script = ExtResource("4_7rqgy")
+
+[node name="planet2coll" type="CollisionShape2D" parent="planet2" unique_id=1782721203]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_qxria")
+
+[node name="planet3" type="Area2D" parent="." unique_id=1932664036]
+position = Vector2(475, 455)
+script = ExtResource("4_qxria")
+
+[node name="planet3coll" type="CollisionShape2D" parent="planet3" unique_id=61777930]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_qxria")
+
 [node name="PlayerCharacter" parent="." unique_id=1280704131 instance=ExtResource("2_nhkr4")]
 position = Vector2(611, 301)
 
 [connection signal="body_entered" from="planet1" to="planet1" method="_on_body_entered"]
 [connection signal="body_exited" from="planet1" to="planet1" method="_on_body_exited"]
+[connection signal="body_entered" from="planet2" to="planet2" method="_on_body_entered"]
+[connection signal="body_exited" from="planet2" to="planet2" method="_on_body_exited"]
+[connection signal="body_entered" from="planet3" to="planet3" method="_on_body_entered"]
+[connection signal="body_exited" from="planet3" to="planet3" method="_on_body_exited"]

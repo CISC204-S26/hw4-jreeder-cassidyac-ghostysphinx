@@ -43,8 +43,8 @@ radius = 34.539833
 [node name="Planet1" type="Node2D" unique_id=1012845952]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1980595937]
-position = Vector2(568.1111, 318.5)
-scale = Vector2(0.600926, 0.6009259)
+position = Vector2(588.1111, 325)
+scale = Vector2(0.6217593, 0.61296296)
 texture = ExtResource("1_h3ok5")
 
 [node name="doorarea" type="Area2D" parent="." unique_id=30560146]
