@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://heaiae4npo8a"]
 
 [ext_resource type="Texture2D" uid="uid://dl3m2ufy2i05t" path="res://Art/Main Screen.png" id="1_tr2i4"]
+[ext_resource type="Script" uid="uid://d4b2wkplgcuo6" path="res://Scenes/planet_1.gd" id="2_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://myu7b3xsqfad" path="res://Scenes/PlayerCharacter.tscn" id="2_nhkr4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxria"]
+radius = 125.87692
 
 [node name="MainScene" type="Node2D" unique_id=1403496129]
 
@@ -10,4 +14,16 @@ position = Vector2(585.44446, 325.125)
 scale = Vector2(0.6164352, 0.61643517)
 texture = ExtResource("1_tr2i4")
 
+[node name="planet1" type="Area2D" parent="." unique_id=1292251420]
+position = Vector2(376, 183)
+script = ExtResource("2_7rqgy")
+
+[node name="planet1coll" type="CollisionShape2D" parent="planet1" unique_id=1154089240]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_qxria")
+
 [node name="PlayerCharacter" parent="." unique_id=1280704131 instance=ExtResource("2_nhkr4")]
+position = Vector2(611, 301)
+
+[connection signal="body_entered" from="planet1" to="planet1" method="_on_body_entered"]
+[connection signal="body_exited" from="planet1" to="planet1" method="_on_body_exited"]
