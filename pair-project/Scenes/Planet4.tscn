@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://bpxiqt0p2tbq5"]
 
 [ext_resource type="Texture2D" uid="uid://b1rxwjyelqewr" path="res://Art/Planet 4.png" id="1_hy4j5"]
+[ext_resource type="Script" uid="uid://be64wit1071rn" path="res://Scenes/ticket.gd" id="2_y8jp8"]
+[ext_resource type="Texture2D" uid="uid://pywcfr8jdmcj" path="res://Art/Ticket.png" id="3_7xqjl"]
+[ext_resource type="Script" uid="uid://41ca6bsdd62w" path="res://Scenes/slot.gd" id="4_7xqjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peah6"]
+size = Vector2(229, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxj8o"]
+size = Vector2(79, 115)
 
 [node name="Planet4" type="Node2D" unique_id=478031906]
 
@@ -8,3 +17,29 @@
 position = Vector2(569.44446, 323.25)
 scale = Vector2(0.60972214, 0.60972214)
 texture = ExtResource("1_hy4j5")
+
+[node name="Slot" type="Area2D" parent="." unique_id=1570950990]
+position = Vector2(416, 485)
+script = ExtResource("4_7xqjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot" unique_id=246787536]
+position = Vector2(-58.5, -88.5)
+shape = SubResource("RectangleShape2D_peah6")
+
+[node name="Ticket" type="Area2D" parent="." unique_id=77985408]
+position = Vector2(628, 558)
+script = ExtResource("2_y8jp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ticket" unique_id=1681586594]
+position = Vector2(-14, 0)
+scale = Vector2(0.16111112, 0.16111112)
+texture = ExtResource("3_7xqjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ticket" unique_id=2122032845]
+position = Vector2(-7.5, -3.5)
+shape = SubResource("RectangleShape2D_nxj8o")
+
+[connection signal="area_entered" from="Slot" to="Ticket" method="_on_slot_area_entered"]
+[connection signal="area_exited" from="Slot" to="Ticket" method="_on_slot_area_exited"]
+[connection signal="area_entered" from="Ticket" to="Slot" method="_on_ticket_area_entered"]
+[connection signal="area_exited" from="Ticket" to="Slot" method="_on_ticket_area_exited"]
