@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Pair Project"
-run/main_scene="uid://wpelie1yghwf"
+run/main_scene="uid://ds3ki6743ko3m"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+GameManager="*uid://l0teac40oqug"
 
 [input]
 

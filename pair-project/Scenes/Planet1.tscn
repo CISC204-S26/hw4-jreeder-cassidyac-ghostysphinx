@@ -1,8 +1,44 @@
 [gd_scene format=3 uid="uid://ds3ki6743ko3m"]
 
 [ext_resource type="Texture2D" uid="uid://dt8pamcrijt1h" path="res://Art/Planet 1.png" id="1_h3ok5"]
+[ext_resource type="Script" uid="uid://dr2l3x2uqt5dc" path="res://Scenes/doorarea.gd" id="2_5jdwp"]
 [ext_resource type="Texture2D" uid="uid://ddj4n8fwmgwk3" path="res://Art/Closed Door.png" id="2_7n2ao"]
 [ext_resource type="Texture2D" uid="uid://hgve22sdvqll" path="res://Art/Open Door.png" id="3_n6adq"]
+[ext_resource type="Script" uid="uid://pp1g3715kir0" path="res://Scenes/p_1_pcbody.gd" id="4_ymt3h"]
+[ext_resource type="Texture2D" uid="uid://5xb5g8fs28g7" path="res://Art/Alien.png" id="5_mlv8b"]
+[ext_resource type="Script" uid="uid://bvvr66aqnb7oy" path="res://Scenes/area_2d.gd" id="6_kiyxu"]
+[ext_resource type="Texture2D" uid="uid://c0c0vw288qhys" path="res://Art/Object 1.png" id="6_tmmn0"]
+[ext_resource type="Script" uid="uid://dpcek3e34ndq0" path="res://Scenes/score.gd" id="8_dhx3k"]
+[ext_resource type="Texture2D" uid="uid://01b4eyiwk054" path="res://Art/Object 2.png" id="8_kiyxu"]
+[ext_resource type="Texture2D" uid="uid://ciui80u8ux7te" path="res://Art/Object 3.png" id="9_t1u6l"]
+[ext_resource type="Texture2D" uid="uid://cexj2rlumkds4" path="res://Art/Object 4.png" id="10_5jdwp"]
+[ext_resource type="Texture2D" uid="uid://bp5rb8vsw0nyv" path="res://Art/Object 5.png" id="11_tam5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ni83"]
+size = Vector2(226.23273, 335.72418)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tam5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7n2ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n6adq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlv8b"]
+radius = 712.31323
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofnjd"]
+radius = 754.6351
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmmn0"]
+radius = 34.539833
 
 [node name="Planet1" type="Node2D" unique_id=1012845952]
 
@@ -11,12 +47,112 @@ position = Vector2(568.1111, 318.5)
 scale = Vector2(0.600926, 0.6009259)
 texture = ExtResource("1_h3ok5")
 
-[node name="Closed Door" type="Sprite2D" parent="." unique_id=1499785865]
-position = Vector2(821, 267)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_7n2ao")
+[node name="doorarea" type="Area2D" parent="." unique_id=30560146]
+position = Vector2(911, 327)
+scale = Vector2(0.600926, 0.6009259)
+script = ExtResource("2_5jdwp")
 
-[node name="Open Door" type="Sprite2D" parent="." unique_id=842461272]
-position = Vector2(821, 267)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_n6adq")
+[node name="doorcoll" type="CollisionShape2D" parent="doorarea" unique_id=1327913392]
+position = Vector2(271.24805, 364.43756)
+shape = SubResource("RectangleShape2D_2ni83")
+
+[node name="door" type="AnimatedSprite2D" parent="doorarea" unique_id=2076511778]
+sprite_frames = SubResource("SpriteFrames_tam5m")
+
+[node name="p1pcbody" type="CharacterBody2D" parent="." unique_id=553716141]
+position = Vector2(480.00003, 615)
+scale = Vector2(0.063888915, 0.056481514)
+script = ExtResource("4_ymt3h")
+
+[node name="p1pcsprite" type="Sprite2D" parent="p1pcbody" unique_id=665749783]
+position = Vector2(1737.3901, -309.83624)
+scale = Vector2(1.7971009, 1.9180315)
+texture = ExtResource("5_mlv8b")
+
+[node name="p1pccoll" type="CollisionShape2D" parent="p1pcbody" unique_id=1725235158]
+position = Vector2(1706.0857, -300.98343)
+shape = SubResource("CircleShape2D_mlv8b")
+
+[node name="interact" type="Area2D" parent="p1pcbody" unique_id=276436725]
+
+[node name="interactcoll" type="CollisionShape2D" parent="p1pcbody/interact" unique_id=656687724]
+position = Vector2(1721.7379, -300.98346)
+shape = SubResource("CircleShape2D_ofnjd")
+
+[node name="obj1" type="Area2D" parent="." unique_id=836297205]
+collision_layer = 4
+script = ExtResource("6_kiyxu")
+
+[node name="obj1sprite" type="Sprite2D" parent="obj1" unique_id=1508862830]
+position = Vector2(201.99998, 290)
+scale = Vector2(0.13379627, 0.14351851)
+texture = ExtResource("6_tmmn0")
+
+[node name="obj1coll" type="CollisionShape2D" parent="obj1" unique_id=1680764105]
+position = Vector2(193, 291)
+shape = SubResource("CircleShape2D_tmmn0")
+
+[node name="obj2" type="Area2D" parent="." unique_id=1716209178]
+collision_layer = 4
+script = ExtResource("6_kiyxu")
+
+[node name="obj2sprite" type="Sprite2D" parent="obj2" unique_id=1057281277]
+position = Vector2(832, 197.00003)
+scale = Vector2(0.12893523, 0.12453702)
+texture = ExtResource("8_kiyxu")
+
+[node name="obj2coll" type="CollisionShape2D" parent="obj2" unique_id=951985703]
+position = Vector2(828, 194)
+shape = SubResource("CircleShape2D_tmmn0")
+
+[node name="obj3" type="Area2D" parent="." unique_id=1255612447]
+collision_layer = 4
+script = ExtResource("6_kiyxu")
+
+[node name="obj3sprite" type="Sprite2D" parent="obj3" unique_id=1986595973]
+position = Vector2(789.1875, 513.125)
+scale = Vector2(0.12928237, 0.11504633)
+texture = ExtResource("9_t1u6l")
+
+[node name="obj3coll" type="CollisionShape2D" parent="obj3" unique_id=1126084698]
+position = Vector2(790, 515)
+shape = SubResource("CircleShape2D_tmmn0")
+
+[node name="obj4" type="Area2D" parent="." unique_id=105484988]
+collision_layer = 4
+script = ExtResource("6_kiyxu")
+
+[node name="obj4sprite" type="Sprite2D" parent="obj4" unique_id=1713565582]
+position = Vector2(515, 362.00006)
+scale = Vector2(0.12928237, 0.11504633)
+texture = ExtResource("10_5jdwp")
+
+[node name="obj4coll" type="CollisionShape2D" parent="obj4" unique_id=2031303073]
+position = Vector2(514, 367)
+shape = SubResource("CircleShape2D_tmmn0")
+
+[node name="obj5" type="Area2D" parent="." unique_id=1546557947]
+collision_layer = 4
+script = ExtResource("6_kiyxu")
+
+[node name="obj5sprite" type="Sprite2D" parent="obj5" unique_id=1840016448]
+position = Vector2(563, 77.00006)
+scale = Vector2(0.12928237, 0.11504633)
+texture = ExtResource("11_tam5m")
+
+[node name="obj5coll" type="CollisionShape2D" parent="obj5" unique_id=653583622]
+position = Vector2(564, 82)
+shape = SubResource("CircleShape2D_tmmn0")
+
+[node name="score" type="RichTextLabel" parent="." unique_id=1680331203]
+offset_right = 218.0
+offset_bottom = 90.0
+script = ExtResource("8_dhx3k")
+
+[connection signal="body_entered" from="doorarea" to="doorarea" method="_on_body_entered"]
+[connection signal="body_entered" from="p1pcbody/interact" to="obj1" method="_on_interact_body_entered"]
+[connection signal="body_entered" from="obj1" to="obj1" method="_on_body_entered"]
+[connection signal="body_entered" from="obj2" to="obj2" method="_on_body_entered"]
+[connection signal="body_entered" from="obj3" to="obj3" method="_on_body_entered"]
+[connection signal="body_entered" from="obj4" to="obj4" method="_on_body_entered"]
+[connection signal="body_entered" from="obj5" to="obj5" method="_on_body_entered"]
