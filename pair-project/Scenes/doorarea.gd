@@ -29,4 +29,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "p1pcbody" and is_open:
+		GameManager.complete_planet(1)
 		get_tree().change_scene_to_file("res://Scenes/MainScene.tscn")

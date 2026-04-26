@@ -5,9 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://myu7b3xsqfad" path="res://Scenes/PlayerCharacter.tscn" id="2_nhkr4"]
 [ext_resource type="Script" uid="uid://bjx70ehejvk6t" path="res://Scenes/planet_2.gd" id="4_7rqgy"]
 [ext_resource type="Script" uid="uid://mb0nvy8glugk" path="res://Scenes/planet_three.gd" id="4_qxria"]
+[ext_resource type="Script" uid="uid://cglvmf0lmfba3" path="res://Scenes/planet_4.gd" id="6_y4jh7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxria"]
 radius = 116.00431
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q68mp"]
+radius = 114.15778
 
 [node name="MainScene" type="Node2D" unique_id=1403496129]
 
@@ -24,6 +28,15 @@ script = ExtResource("2_7rqgy")
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_qxria")
 
+[node name="p1islocked" type="RichTextLabel" parent="planet1" unique_id=53897937]
+offset_left = -105.0
+offset_top = -43.0
+offset_right = 102.0
+offset_bottom = 40.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="planet2" type="Area2D" parent="." unique_id=1387009553]
 position = Vector2(709, 171)
 script = ExtResource("4_7rqgy")
@@ -32,16 +45,59 @@ script = ExtResource("4_7rqgy")
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_qxria")
 
+[node name="p2islocked" type="RichTextLabel" parent="planet2" unique_id=2032233165]
+offset_left = -108.0
+offset_top = -28.0
+offset_right = 103.0
+offset_bottom = 14.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="planet3" type="Area2D" parent="." unique_id=1932664036]
 position = Vector2(475, 455)
 script = ExtResource("4_qxria")
 
 [node name="planet3coll" type="CollisionShape2D" parent="planet3" unique_id=61777930]
-position = Vector2(0, -4)
+position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_qxria")
+
+[node name="p3islocked" type="RichTextLabel" parent="planet3" unique_id=451979834]
+offset_left = -111.0
+offset_top = -25.0
+offset_right = 99.0
+offset_bottom = 42.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerCharacter" parent="." unique_id=1280704131 instance=ExtResource("2_nhkr4")]
 position = Vector2(611, 301)
+
+[node name="controls" type="RichTextLabel" parent="." unique_id=179140999]
+offset_left = 11.0
+offset_top = 575.0
+offset_right = 268.0
+offset_bottom = 645.0
+text = "Controls:
+Movement: Arrow Keys
+Interact: E"
+
+[node name="planet4" type="Area2D" parent="." unique_id=1081330613]
+script = ExtResource("6_y4jh7")
+
+[node name="planet4coll" type="CollisionShape2D" parent="planet4" unique_id=1928967163]
+position = Vector2(762, 477)
+shape = SubResource("CircleShape2D_q68mp")
+
+[node name="p4islocked" type="RichTextLabel" parent="planet4" unique_id=1588072543]
+offset_left = 651.0
+offset_top = 440.0
+offset_right = 869.0
+offset_bottom = 510.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="planet1" to="planet1" method="_on_body_entered"]
 [connection signal="body_exited" from="planet1" to="planet1" method="_on_body_exited"]
@@ -49,3 +105,5 @@ position = Vector2(611, 301)
 [connection signal="body_exited" from="planet2" to="planet2" method="_on_body_exited"]
 [connection signal="body_entered" from="planet3" to="planet3" method="_on_body_entered"]
 [connection signal="body_exited" from="planet3" to="planet3" method="_on_body_exited"]
+[connection signal="body_entered" from="planet4" to="planet4" method="_on_body_entered"]
+[connection signal="body_exited" from="planet4" to="planet4" method="_on_body_exited"]

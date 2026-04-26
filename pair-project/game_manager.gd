@@ -3,6 +3,8 @@ extends Node
 var items_collected = 0
 var total_needed = 5
 
+var unlocked_planets = 1
+
 signal score_changed(new_score)
 
 func add_item():
@@ -11,6 +13,10 @@ func add_item():
 	
 	if items_collected >= total_needed:
 		print("Door is now open")
+
+func complete_planet(planet_number):
+	if planet_number == unlocked_planets:
+		unlocked_planets += 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
