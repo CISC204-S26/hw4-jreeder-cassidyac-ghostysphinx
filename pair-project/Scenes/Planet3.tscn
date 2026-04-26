@@ -1,18 +1,10 @@
 [gd_scene format=3 uid="uid://wpelie1yghwf"]
 
-[ext_resource type="Script" uid="uid://bd1l8xvjtkr4q" path="res://Scenes/planet_3.gd" id="1_75qt4"]
 [ext_resource type="Texture2D" uid="uid://do6cynmekaje" path="res://Art/Planet3.png" id="1_3606x"]
 [ext_resource type="Texture2D" uid="uid://du7dx32fbfiyw" path="res://Art/Maze.png" id="2_55p7u"]
 [ext_resource type="PackedScene" uid="uid://myu7b3xsqfad" path="res://Scenes/PlayerCharacter.tscn" id="3_xpuan"]
-[ext_resource type="Texture2D" uid="uid://ddj4n8fwmgwk3" path="res://Art/Closed Door.png" id="4_isoov"]
-[ext_resource type="Texture2D" uid="uid://hgve22sdvqll" path="res://Art/Open Door.png" id="5_1o8wl"]
-[ext_resource type="Script" uid="uid://bj28rvvxedai8" path="res://Scenes/Door.gd" id="5_tiqeb"]
+[ext_resource type="Script" uid="uid://bnjg0rpho4bjy" path="res://Scenes/test.gd" id="5_55p7u"]
 [ext_resource type="Texture2D" uid="uid://b11mb771u6cyq" path="res://Art/Light Off.png" id="6_55p7u"]
-[ext_resource type="Script" uid="uid://b3b67ngomrmf5" path="res://Scenes/light_1.gd" id="6_isoov"]
-[ext_resource type="Texture2D" uid="uid://dsarv1hjar5pa" path="res://Art/Light On.png" id="8_1o8wl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hntyx"]
-size = Vector2(141.00003, 201)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3606x"]
 size = Vector2(972, 20)
@@ -80,12 +72,11 @@ size = Vector2(165.5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uw0fh"]
 size = Vector2(75, 20)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55p7u"]
-radius = 170.52637
-height = 639.4738
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpuan"]
+radius = 22.61377
+height = 71.75592
 
 [node name="Planet3" type="Node2D" unique_id=713718023]
-script = ExtResource("1_75qt4")
 
 [node name="Planet3" type="Sprite2D" parent="." unique_id=1942996726]
 position = Vector2(568.00006, 323)
@@ -96,21 +87,6 @@ texture = ExtResource("1_3606x")
 position = Vector2(571.00006, 329)
 scale = Vector2(0.6037037, 0.6037037)
 texture = ExtResource("2_55p7u")
-
-[node name="door" type="Area2D" parent="." unique_id=1504883227]
-position = Vector2(982, 555)
-script = ExtResource("5_tiqeb")
-door_closed = ExtResource("4_isoov")
-door_open = ExtResource("5_1o8wl")
-
-[node name="door" type="Sprite2D" parent="door" unique_id=1730583048]
-position = Vector2(-164, -231)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_isoov")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=1349982220]
-position = Vector2(-2.5, -7.5)
-shape = SubResource("RectangleShape2D_hntyx")
 
 [node name="Maze Collisions" type="StaticBody2D" parent="." unique_id=355641724]
 
@@ -204,70 +180,18 @@ shape = SubResource("RectangleShape2D_uw0fh")
 
 [node name="PlayerCharacter" parent="." unique_id=1280704131 instance=ExtResource("3_xpuan")]
 
-[node name="Light1" type="Area2D" parent="." unique_id=693429411]
-position = Vector2(48, 47)
-script = ExtResource("6_isoov")
-light_off = ExtResource("6_55p7u")
-light_on = ExtResource("8_1o8wl")
+[node name="Area2D" type="Area2D" parent="." unique_id=2066445017]
+position = Vector2(713, 412)
+script = ExtResource("5_55p7u")
 
-[node name="Sprite2D" type="Sprite2D" parent="Light1" unique_id=23989170]
-position = Vector2(-1.1444092e-05, -1.1444092e-05)
-scale = Vector2(0.14074077, 0.14074077)
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=2146154377]
+position = Vector2(3.0000114, 1.1444092e-05)
+scale = Vector2(0.104629636, 0.104629636)
 texture = ExtResource("6_55p7u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Light1" unique_id=361221229]
-position = Vector2(-8.000001, 16.000002)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1553967901]
+position = Vector2(-3.0000005, 9.000001)
 rotation = 0.2617994
-scale = Vector2(0.14074077, 0.14074077)
-shape = SubResource("CapsuleShape2D_55p7u")
+shape = SubResource("CapsuleShape2D_xpuan")
 
-[node name="Light2" type="Area2D" parent="." unique_id=1504537048]
-position = Vector2(45, 574)
-script = ExtResource("6_isoov")
-light_off = ExtResource("6_55p7u")
-light_on = ExtResource("8_1o8wl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Light2" unique_id=570709199]
-position = Vector2(-1.1444092e-05, -1.1444092e-05)
-scale = Vector2(0.14074077, 0.14074077)
-texture = ExtResource("6_55p7u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Light2" unique_id=665168731]
-position = Vector2(-8.000001, 16.000002)
-rotation = 0.2617994
-scale = Vector2(0.14074077, 0.14074077)
-shape = SubResource("CapsuleShape2D_55p7u")
-
-[node name="Light3" type="Area2D" parent="." unique_id=1240009652]
-position = Vector2(1086, 58)
-script = ExtResource("6_isoov")
-light_off = ExtResource("6_55p7u")
-light_on = ExtResource("8_1o8wl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Light3" unique_id=180259148]
-position = Vector2(-1.1444092e-05, -1.1444092e-05)
-scale = Vector2(0.14074077, 0.14074077)
-texture = ExtResource("6_55p7u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Light3" unique_id=283594242]
-position = Vector2(-8.000001, 16.000002)
-rotation = 0.2617994
-scale = Vector2(0.14074077, 0.14074077)
-shape = SubResource("CapsuleShape2D_55p7u")
-
-[node name="Light4" type="Area2D" parent="." unique_id=607123763]
-position = Vector2(669, 116)
-script = ExtResource("6_isoov")
-light_off = ExtResource("6_55p7u")
-light_on = ExtResource("8_1o8wl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Light4" unique_id=343978798]
-position = Vector2(-1.1444092e-05, -1.1444092e-05)
-scale = Vector2(0.14074077, 0.14074077)
-texture = ExtResource("6_55p7u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Light4" unique_id=832756535]
-position = Vector2(-8.000001, 16.000002)
-rotation = 0.2617994
-scale = Vector2(0.14074077, 0.14074077)
-shape = SubResource("CapsuleShape2D_55p7u")
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
