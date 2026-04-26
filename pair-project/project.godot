@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pair Project"
-run/main_scene="uid://heaiae4npo8a"
+run/main_scene="uid://wpelie1yghwf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]

@@ -24,5 +24,5 @@ func _on_body_exited(body: Node2D) -> void:
 		player_in_range = false
 
 
-func _on_planet_2_body_entered(body: Node2D) -> void:
+func _on_planet_2_body_entered(_body: Node2D) -> void:
 	pass # Replace with function body.
