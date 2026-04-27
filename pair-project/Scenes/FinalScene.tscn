@@ -1,3 +1,73 @@
 [gd_scene format=3 uid="uid://df7wutreutw1d"]
 
+[ext_resource type="Texture2D" uid="uid://dv2okci5gsfqy" path="res://Art/frames/1.jpg" id="1_2p8oa"]
+[ext_resource type="Texture2D" uid="uid://dasdv5xrgtksw" path="res://Art/frames/2.jpg" id="2_76qg4"]
+[ext_resource type="Texture2D" uid="uid://dpi1yd10r6l5r" path="res://Art/frames/3.jpg" id="3_053qy"]
+[ext_resource type="Texture2D" uid="uid://c6w8smpr280ss" path="res://Art/frames/4.jpg" id="4_ybrqe"]
+[ext_resource type="Texture2D" uid="uid://ch226a5m60ns0" path="res://Art/frames/5.jpg" id="5_w4ik4"]
+[ext_resource type="Texture2D" uid="uid://btjgf445e2wje" path="res://Art/frames/6.jpg" id="6_merax"]
+[ext_resource type="Texture2D" uid="uid://dpjlv0iefial1" path="res://Art/frames/7.jpg" id="7_wc7kn"]
+[ext_resource type="Texture2D" uid="uid://bywasj5a42jpl" path="res://Art/frames/8.jpg" id="8_28jd2"]
+[ext_resource type="Texture2D" uid="uid://bg0a21dn7yypp" path="res://Art/frames/9.jpg" id="9_ttt33"]
+[ext_resource type="Texture2D" uid="uid://dket6ob6xwmom" path="res://Art/frames/10.jpg" id="10_xh2v1"]
+[ext_resource type="Texture2D" uid="uid://bstkotyaj84iw" path="res://Art/frames/11.jpg" id="11_haa4b"]
+[ext_resource type="Texture2D" uid="uid://bv046ojvyj6fy" path="res://Art/frames/12.jpg" id="12_in8vh"]
+[ext_resource type="Texture2D" uid="uid://c6dfjh1y53eum" path="res://Art/frames/13.jpg" id="13_6cdot"]
+[ext_resource type="Script" uid="uid://ctgicjb52dj6c" path="res://Scenes/earth.gd" id="14_76qg4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2p8oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2p8oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76qg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_053qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ybrqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w4ik4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_merax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wc7kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_28jd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ttt33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xh2v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_haa4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_in8vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6cdot")
+}],
+"loop": true,
+"name": &"lilguy",
+"speed": 5.0
+}]
+
 [node name="FinalScene" type="Node2D" unique_id=976958970]
+
+[node name="earth" type="AnimatedSprite2D" parent="." unique_id=1901126131]
+position = Vector2(577.44446, 318.5)
+scale = Vector2(0.6212962, 0.6212962)
+sprite_frames = SubResource("SpriteFrames_2p8oa")
+animation = &"lilguy"
+frame_progress = 0.43336084
+script = ExtResource("14_76qg4")

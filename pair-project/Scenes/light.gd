@@ -32,3 +32,5 @@ func toggle_light():
 	else:
 		$Sprite2D.texture = off_texture
 		get_parent().lights_on -= 1
+		
+	print(get_parent().lights_on)
