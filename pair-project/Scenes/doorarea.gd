@@ -31,3 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "p1pcbody" and is_open:
 		GameManager.complete_planet(1)
 		get_tree().change_scene_to_file("res://Scenes/MainScene.tscn")
+
+
+func _on_red_button_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

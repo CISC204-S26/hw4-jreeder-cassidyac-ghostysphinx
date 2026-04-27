@@ -1,10 +1,119 @@
 [gd_scene format=3 uid="uid://ccf2ulf0ilspa"]
 
 [ext_resource type="Texture2D" uid="uid://cht4qmhbh3xr" path="res://Art/Planet2.png" id="1_yc7nc"]
+[ext_resource type="Script" uid="uid://dr2l3x2uqt5dc" path="res://Scenes/doorarea.gd" id="2_pkcwg"]
+[ext_resource type="Texture2D" uid="uid://ddj4n8fwmgwk3" path="res://Art/Closed Door.png" id="3_orp6e"]
+[ext_resource type="Texture2D" uid="uid://hgve22sdvqll" path="res://Art/Open Door.png" id="4_twcju"]
+[ext_resource type="Script" uid="uid://pp1g3715kir0" path="res://Scenes/p_1_pcbody.gd" id="5_5jpbp"]
+[ext_resource type="Texture2D" uid="uid://5xb5g8fs28g7" path="res://Art/Alien.png" id="6_mshnw"]
+[ext_resource type="Script" uid="uid://b4r1f5d5js8md" path="res://Scenes/red_button.gd" id="7_5jpbp"]
+[ext_resource type="Texture2D" uid="uid://oewfbicshf72" path="res://Art/redbutton.png" id="7_twcju"]
+[ext_resource type="Texture2D" uid="uid://dv0khlwp78brm" path="res://Art/incorrect button red.png" id="8_5jpbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh5a6"]
+size = Vector2(226.23273, 335.72418)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vml1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_orp6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_twcju")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npk8c"]
+radius = 754.6351
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4yvm"]
+radius = 712.31323
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eh5a6"]
+radius = 132.65369
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mshnw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_twcju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5jpbp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
 
 [node name="Planet2" type="Node2D" unique_id=368560157]
 
-[node name="Planet2" type="Sprite2D" parent="." unique_id=258107]
+[node name="Background" type="Sprite2D" parent="." unique_id=258107]
 position = Vector2(587, 330)
 scale = Vector2(0.637963, 0.63796294)
 texture = ExtResource("1_yc7nc")
+
+[node name="doorarea" type="Area2D" parent="." unique_id=1835507391]
+position = Vector2(832, 214.99997)
+scale = Vector2(0.8197118, 0.8197116)
+script = ExtResource("2_pkcwg")
+
+[node name="doorcoll" type="CollisionShape2D" parent="doorarea" unique_id=914553626]
+position = Vector2(271.24805, 364.43756)
+shape = SubResource("RectangleShape2D_eh5a6")
+
+[node name="door" type="AnimatedSprite2D" parent="doorarea" unique_id=1363768032]
+sprite_frames = SubResource("SpriteFrames_vml1j")
+
+[node name="p1pcbody" type="CharacterBody2D" parent="." unique_id=2086183752]
+z_index = 2
+position = Vector2(-94.99999, 595.99994)
+scale = Vector2(0.11877084, 0.105000325)
+script = ExtResource("5_5jpbp")
+
+[node name="interact" type="Area2D" parent="p1pcbody" unique_id=1770118287]
+scale = Vector2(0.99999994, 1)
+
+[node name="interactcoll" type="CollisionShape2D" parent="p1pcbody/interact" unique_id=1940042236]
+position = Vector2(1721.7379, -300.98346)
+shape = SubResource("CircleShape2D_npk8c")
+
+[node name="p1pcsprite" type="Sprite2D" parent="p1pcbody" unique_id=1992534844]
+position = Vector2(1737.3901, -309.83624)
+scale = Vector2(1.7971009, 1.9180315)
+texture = ExtResource("6_mshnw")
+
+[node name="p1pccoll" type="CollisionShape2D" parent="p1pcbody" unique_id=905705209]
+position = Vector2(1706.0857, -300.98343)
+shape = SubResource("CircleShape2D_q4yvm")
+
+[node name="Red Button" type="Area2D" parent="." unique_id=1466430423]
+light_mask = 0
+visibility_layer = 2
+z_index = 1
+position = Vector2(229, 219)
+script = ExtResource("7_5jpbp")
+
+[node name="red collision" type="CollisionShape2D" parent="Red Button" unique_id=882155335]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(0, 115)
+scale = Vector2(0.8799988, 0.8799988)
+shape = SubResource("CircleShape2D_eh5a6")
+
+[node name="red button" type="AnimatedSprite2D" parent="Red Button" unique_id=556145429]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(0, 100)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_mshnw")
+
+[connection signal="body_entered" from="doorarea" to="doorarea" method="_on_body_entered"]
+[connection signal="area_entered" from="p1pcbody/interact" to="Red Button" method="_on_interact_area_entered"]
+[connection signal="area_exited" from="p1pcbody/interact" to="Red Button" method="_on_interact_area_exited"]
+[connection signal="area_entered" from="Red Button" to="p1pcbody" method="_on_red_button_area_entered"]
+[connection signal="area_exited" from="Red Button" to="p1pcbody" method="_on_red_button_area_exited"]
