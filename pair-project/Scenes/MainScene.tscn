@@ -25,7 +25,7 @@ position = Vector2(376, 183)
 script = ExtResource("2_7rqgy")
 
 [node name="planet1coll" type="CollisionShape2D" parent="planet1" unique_id=1154089240]
-position = Vector2(0, -4)
+position = Vector2(1, -4)
 shape = SubResource("CircleShape2D_qxria")
 
 [node name="p1islocked" type="RichTextLabel" parent="planet1" unique_id=53897937]
