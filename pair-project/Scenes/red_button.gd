@@ -1,4 +1,4 @@
-class_name Interactable
+
 extends Area2D
 
 @onready var interaction_label = get_node_or_null("Label")
