@@ -20,18 +20,17 @@ func open_door():
 	anim.frame = 1
 	collision.set_deferred("disabled", false)
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if (GameManager.planet_2_door_open):
+		open_door()
+		GameManager.planet_2_door_open = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "p1pcbody" and is_open:
-		GameManager.complete_planet(1)
+	print(body.name)
+	if body.name == "alien" and is_open:
+		#door.play("redBlink")
+		anim.frame = 1
+		await get_tree().create_timer(1.0).timeout
+		GameManager.complete_planet(2)
 		get_tree().change_scene_to_file("res://Scenes/MainScene.tscn")
-
-
-func _on_red_button_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

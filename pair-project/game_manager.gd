@@ -5,6 +5,9 @@ var total_needed = 5
 
 var unlocked_planets = 1
 
+#bool to open or close the door on planet2
+var planet_2_door_open: bool = false
+
 signal score_changed(new_score)
 
 func add_item():

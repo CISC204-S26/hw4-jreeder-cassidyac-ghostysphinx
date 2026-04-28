@@ -12,9 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cqd80jia82nh7" path="res://Art/redincorrect.png" id="8_5jpbp"]
 [ext_resource type="Texture2D" uid="uid://b5mq8uqvtebu" path="res://Art/bluebutton.png" id="8_q4yvm"]
 [ext_resource type="Texture2D" uid="uid://mjsrffimvhjc" path="res://Art/blueincorrect.png" id="9_npk8c"]
-[ext_resource type="Texture2D" uid="uid://bd3uqbuwt2lx8" path="res://Art/yellowbuttonyes.png" id="12_npk8c"]
-[ext_resource type="Texture2D" uid="uid://0ftvxycb4vww" path="res://Art/yellowbutton.png" id="13_usf8n"]
-[ext_resource type="Script" uid="uid://ciirj2s77q1g4" path="res://Scenes/yellow_button.gd" id="15_usf8n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vml1j"]
 animations = [{
@@ -61,18 +58,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"redBlink",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_npk8c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_usf8n")
-}],
-"loop": true,
-"name": &"yellowBlink",
-"speed": 5.0
+"speed": 0.5
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eh5a6"]
@@ -86,8 +72,8 @@ scale = Vector2(0.637963, 0.63796294)
 texture = ExtResource("1_yc7nc")
 
 [node name="doorarea" type="Area2D" parent="." unique_id=1835507391]
-position = Vector2(923, 319)
-scale = Vector2(0.625982, 0.6259818)
+position = Vector2(832, 214.99997)
+scale = Vector2(0.8197118, 0.8197116)
 script = ExtResource("2_pkcwg")
 
 [node name="door" type="AnimatedSprite2D" parent="doorarea" unique_id=1363768032]
@@ -164,28 +150,6 @@ position = Vector2(0, 115)
 scale = Vector2(0.8799988, 0.8799988)
 shape = SubResource("CircleShape2D_eh5a6")
 
-[node name="Yellow Button" type="Area2D" parent="." unique_id=2125268131]
-light_mask = 0
-visibility_layer = 2
-z_index = 1
-position = Vector2(923, 203)
-script = ExtResource("15_usf8n")
-
-[node name="yellow button" type="AnimatedSprite2D" parent="Yellow Button" unique_id=1660166281]
-light_mask = 0
-visibility_layer = 2
-position = Vector2(0, 27)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_mshnw")
-animation = &"yellowBlink"
-
-[node name="yellow collision" type="CollisionShape2D" parent="Yellow Button" unique_id=1123291394]
-light_mask = 0
-visibility_layer = 2
-position = Vector2(0, 115)
-scale = Vector2(0.8799988, 0.8799988)
-shape = SubResource("CircleShape2D_eh5a6")
-
 [connection signal="body_entered" from="doorarea" to="doorarea" method="_on_body_entered"]
 [connection signal="area_entered" from="alien/interact" to="doorarea" method="_on_interact_area_entered"]
 [connection signal="area_entered" from="alien/interact" to="Red Button" method="_on_interact_area_entered"]
@@ -198,7 +162,3 @@ shape = SubResource("CircleShape2D_eh5a6")
 [connection signal="area_exited" from="Red Button" to="alien" method="_on_red_button_area_exited"]
 [connection signal="body_entered" from="Red Button" to="Red Button" method="_on_body_entered"]
 [connection signal="body_exited" from="Red Button" to="Red Button" method="_on_body_exited"]
-[connection signal="area_entered" from="Yellow Button" to="Yellow Button" method="_on_area_entered"]
-[connection signal="area_exited" from="Yellow Button" to="Yellow Button" method="_on_area_exited"]
-[connection signal="body_entered" from="Yellow Button" to="Yellow Button" method="_on_body_entered"]
-[connection signal="body_exited" from="Yellow Button" to="Yellow Button" method="_on_body_exited"]
