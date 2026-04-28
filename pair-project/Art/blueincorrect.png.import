@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv0khlwp78brm"
-path="res://.godot/imported/incorrect button red.png-67a7dd00fcacdee0525edf08ba3fbdc8.ctex"
+uid="uid://mjsrffimvhjc"
+path="res://.godot/imported/blueincorrect.png-97e6e1d1625b40269455fa2df076fe46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/incorrect button red.png"
-dest_files=["res://.godot/imported/incorrect button red.png-67a7dd00fcacdee0525edf08ba3fbdc8.ctex"]
+source_file="res://Art/blueincorrect.png"
+dest_files=["res://.godot/imported/blueincorrect.png-97e6e1d1625b40269455fa2df076fe46.ctex"]
 
 [params]
 
