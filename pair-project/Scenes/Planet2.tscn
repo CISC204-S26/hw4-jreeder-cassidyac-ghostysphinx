@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccf2ulf0ilspa"]
 
 [ext_resource type="Texture2D" uid="uid://cht4qmhbh3xr" path="res://Art/Planet2.png" id="1_yc7nc"]
-[ext_resource type="Script" uid="uid://dr2l3x2uqt5dc" path="res://Scenes/doorarea.gd" id="2_pkcwg"]
+[ext_resource type="Script" uid="uid://cgnlprmornylu" path="res://Scenes/doorareap_2.gd" id="2_usf8n"]
 [ext_resource type="Texture2D" uid="uid://ddj4n8fwmgwk3" path="res://Art/Closed Door.png" id="3_orp6e"]
 [ext_resource type="Texture2D" uid="uid://hgve22sdvqll" path="res://Art/Open Door.png" id="4_twcju"]
 [ext_resource type="Script" uid="uid://pp1g3715kir0" path="res://Scenes/p_1_pcbody.gd" id="5_5jpbp"]
@@ -85,16 +85,16 @@ position = Vector2(587, 330)
 scale = Vector2(0.637963, 0.63796294)
 texture = ExtResource("1_yc7nc")
 
-[node name="doorarea" type="Area2D" parent="." unique_id=1835507391]
+[node name="doorareap2" type="Area2D" parent="." unique_id=1835507391]
 position = Vector2(923, 319)
 scale = Vector2(0.625982, 0.6259818)
-script = ExtResource("2_pkcwg")
+script = ExtResource("2_usf8n")
 
-[node name="door" type="AnimatedSprite2D" parent="doorarea" unique_id=1363768032]
+[node name="door" type="AnimatedSprite2D" parent="doorareap2" unique_id=1363768032]
 sprite_frames = SubResource("SpriteFrames_vml1j")
 animation = &"doorOpen"
 
-[node name="doorcoll" type="CollisionShape2D" parent="doorarea" unique_id=914553626]
+[node name="doorcoll" type="CollisionShape2D" parent="doorareap2" unique_id=914553626]
 position = Vector2(271.24805, 364.43756)
 shape = SubResource("RectangleShape2D_eh5a6")
 
@@ -186,8 +186,8 @@ position = Vector2(0, 115)
 scale = Vector2(0.8799988, 0.8799988)
 shape = SubResource("CircleShape2D_eh5a6")
 
-[connection signal="body_entered" from="doorarea" to="doorarea" method="_on_body_entered"]
-[connection signal="area_entered" from="alien/interact" to="doorarea" method="_on_interact_area_entered"]
+[connection signal="body_entered" from="doorareap2" to="doorareap2" method="_on_body_entered"]
+[connection signal="area_entered" from="alien/interact" to="doorareap2" method="_on_interact_area_entered"]
 [connection signal="area_entered" from="alien/interact" to="Red Button" method="_on_interact_area_entered"]
 [connection signal="area_exited" from="alien/interact" to="Red Button" method="_on_interact_area_exited"]
 [connection signal="area_entered" from="Blue Button" to="Blue Button" method="_on_area_entered"]

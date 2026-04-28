@@ -4,8 +4,10 @@ var player_in_range = false
 @export var planet_id = 2
 func _process(_delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("interact"):
-		if GameManager.unlocked_planets >= planet_id:
+		if GameManager.unlocked_planets == planet_id:
 			get_tree().change_scene_to_file("res://Scenes/Planet2.tscn")
+		elif GameManager.unlocked_planets > planet_id:
+			$p2islocked.text = "[color=green]PLANET COMPLETED[/color]"
 		else:
 			print("PLANET LOCKED")
 			$p2islocked.text = "[color=red]PLANET 2 LOCKED[/color]"

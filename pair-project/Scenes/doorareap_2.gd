@@ -1,3 +1,4 @@
+
 extends Area2D
 
 @onready var anim = $door
@@ -28,8 +29,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print(body.name)
-	if body.name == "p1pcbody" and is_open:
+	if body.name == "alien" and is_open:
 		#door.play("redBlink")
 		anim.frame = 1
-		GameManager.complete_planet(1)
+		GameManager.complete_planet(2)
 		get_tree().change_scene_to_file("res://Scenes/MainScene.tscn")

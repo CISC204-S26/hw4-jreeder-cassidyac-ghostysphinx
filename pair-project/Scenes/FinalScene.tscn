@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bv046ojvyj6fy" path="res://Art/frames/12.jpg" id="12_in8vh"]
 [ext_resource type="Texture2D" uid="uid://c6dfjh1y53eum" path="res://Art/frames/13.jpg" id="13_6cdot"]
 [ext_resource type="Script" uid="uid://ctgicjb52dj6c" path="res://Scenes/earth.gd" id="14_76qg4"]
+[ext_resource type="Script" uid="uid://cqxvefskratwh" path="res://Scenes/exitbutton.gd" id="15_053qy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p8oa"]
 animations = [{
@@ -62,6 +63,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_053qy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="FinalScene" type="Node2D" unique_id=976958970]
 
 [node name="earth" type="AnimatedSprite2D" parent="." unique_id=1901126131]
@@ -71,3 +75,13 @@ sprite_frames = SubResource("SpriteFrames_2p8oa")
 animation = &"lilguy"
 frame_progress = 0.43336084
 script = ExtResource("14_76qg4")
+
+[node name="exitbutton" type="Button" parent="." unique_id=741279200]
+offset_left = 52.0
+offset_top = 500.0
+offset_right = 299.0
+offset_bottom = 597.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_053qy")
+script = ExtResource("15_053qy")
+
+[connection signal="pressed" from="exitbutton" to="exitbutton" method="_on_pressed"]
